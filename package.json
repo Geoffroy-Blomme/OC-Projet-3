@@ -1,0 +1,19 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "Projet 3 OC",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geoffroy-Blomme/OC-Projet-3.git"
+  },
+  "author": "Geoffroy Blomme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geoffroy-Blomme/OC-Projet-3/issues"
+  },
+  "homepage": "https://github.com/Geoffroy-Blomme/OC-Projet-3#readme"
+}
