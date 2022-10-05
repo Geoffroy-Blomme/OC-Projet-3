@@ -1,0 +1,14 @@
+
+@mixin button-bg-img($lighten: false){
+    //first-color-button and second-color-button 
+    // can be found in _variables.scss  
+
+    $first-color:$first-color-button;
+    $second-color:$second-color-button;
+
+    @if $lighten == true{
+        $first-color:adjust-hue($first-color-button,20deg);
+        //first color is lightened
+    }
+    background-image: linear-gradient(to left top, $first-color, $second-color);
+}

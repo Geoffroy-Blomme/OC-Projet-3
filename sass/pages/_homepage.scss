@@ -1,0 +1,85 @@
+.current-location{
+    
+    background-color: #EAEAEA;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    &__container{
+        display: flex;
+        margin-left: -20px;
+        .current-location__text{
+            margin-left: 15px;
+        }
+    }
+}
+
+.site-introduction{
+    margin:40px 20px;
+    text-align: center;
+
+    &__title{
+        margin: 20px 35px;
+        font-weight: bolder;
+    }
+
+    &__text{
+        font-size: 17px;
+        color: grey;
+        margin-bottom: 30px;
+    }
+}
+
+.site-explanation{
+    background-color: white;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        margin: 0 $homepage-common-side-margin;
+        .site-explanation__title{
+            padding-top: 40px;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bolder;
+        }
+    }
+}
+
+.site-explanation__explanations-elt{
+    display: flex;
+    background-color: $background-color;
+    padding: 25px 0px;
+    margin: 20px 0px;
+   
+    align-items: center;
+    border-radius: 25px;
+    $left-margin-explanations-elt:13px;
+    margin-left:$left-margin-explanations-elt;
+    &__num{
+        $num-width:($left-margin-explanations-elt * 2);
+        margin-left:(-$left-margin-explanations-elt);
+        /* Permet au parent du num de commence horizontallement
+        pile au milieu de &__num
+        */
+        background-color: $primary-color;
+        width: $num-width;
+        line-height: $num-width;
+        // on veut que width==line-height pour que le num soit centre verticallement
+        border-radius: 50%;
+        text-align: center;
+        font-size: 13px;
+        color: white;
+    }
+
+    &__logo{
+        margin-left: 20px;
+    }
+
+    &__text{
+        margin-left: 20px;
+        font-weight: bold;
+    }
+
+    
+
+    
+}
