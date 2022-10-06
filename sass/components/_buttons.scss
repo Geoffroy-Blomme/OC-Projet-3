@@ -3,14 +3,12 @@
     border-radius: 28px;
     padding: 15px 20px;
     background-color: red;
-    $box-shadow-color: grey;
     box-shadow: -1px 1px 5px $box-shadow-color;
     color: white;
     @include button-bg-img;
     &:hover{
         cursor: pointer;
-        box-shadow: -3px 3px 7px $box-shadow-color;
-        @include button-bg-img($lighten:true);
+        @include button-hover-effect;
     }
 
 }
