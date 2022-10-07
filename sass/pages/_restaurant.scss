@@ -1,0 +1,145 @@
+.main-image-restaurant{
+    position: relative;
+    height: $restaurants-main-image-restaurant-container-height;
+    &__container{
+        position: absolute;
+        height: $restaurants-main-image-restaurant-container-height;
+        width: auto;
+        &__image{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.restaurant-title{
+    margin-top:-50px;
+    background-color: $background-color;
+    width: 100%;
+    position: relative;
+    border-radius: 40px 40px 0 0 ;
+    &__container{
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+        &__title{
+            font-family: 'title-font';
+            margin-left: $common-side-margin;
+            font-weight: normal;
+            font-size: 28px;
+            
+            &::after{
+                content: "";
+                width: 15px;
+                height: 1px;
+                position: absolute;
+                right: 0;
+                bottom:-1px;
+            }
+        }
+
+        &__favorite-logo{
+            margin-right: 40px;
+            margin-left: auto;
+        }
+    }
+    
+}
+
+.menu{
+    margin: 0 $common-side-margin;
+
+    .menu__dish-type-container{
+        margin-bottom: 40px;
+    }
+
+    &__dish-type{
+        color: #505050;
+        padding-bottom: 5px;
+        border-bottom: 3px solid;
+        text-transform: uppercase;
+        border-image: linear-gradient(to right, $tertiary-color 40px, transparent 0) 1 0;
+    }
+
+    &__dishes{
+        padding: 0;
+        margin-left: $restaurants-dishes-margin;
+        margin-right: $restaurants-dishes-margin;
+        
+        
+        .menu__dish{
+            list-style: none;
+            display: flex;
+            background-color: white;
+            overflow: hidden;
+            overflow-wrap: break-word;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            @include common-box-shadow;
+            &:hover{
+                
+                .menu__dish__text-container{
+                    width: 70%;
+                }
+                .menu__dish__container-check-mark{
+                    display: flex;
+                }
+            }
+
+            &__text-container{
+                display: flex;
+                flex-direction: column;
+                margin-left: 10px;
+                width: 80%;
+                
+                &__title{
+                    font-weight: bold;
+                    margin: 15px 0 10px 0;
+                    font-size: 18px;
+                    @include text-hidden-if-too-long;
+
+                }
+                &__details{
+                    color: #4C4C4C;
+                    margin:0 0 $restaurants-menu-dish-details-and-price-bottom-margin 0;
+                    font-size: 16px;
+                    white-space: wrap;
+                    @include text-hidden-if-too-long;
+
+                }
+            }
+
+            &__price{
+                margin:auto 10px $restaurants-menu-dish-details-and-price-bottom-margin auto;
+            }
+
+            &__container-check-mark{
+                align-self: stretch;
+                display: none;
+                padding: 0 15px;
+                margin-right: 0;
+                margin-left: auto;
+                background-color: $tertiary-color;
+                .menu__dish__check-mark{
+                    align-self: center;
+                    padding: $restaurants-menu-dish-check-mark-padding;
+                    height: $restaurants-menu-dish-check-mark-height;
+                    border-radius: (($restaurants-menu-dish-check-mark-height + $restaurants-menu-dish-check-mark-padding * 2 ) / 2);
+                    // on veut une border-radius de 50% de la taille totale donc on prend padding*2 + height diviser par 2
+                    color: $tertiary-color;
+                    background-color: white;
+                }
+            }
+                
+        }
+    }
+}
+
+.order-button{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    margin-top: 50px;
+}

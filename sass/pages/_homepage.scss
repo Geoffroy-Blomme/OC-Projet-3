@@ -34,56 +34,74 @@
     &__container{
         display: flex;
         flex-direction: column;
-        margin: 0 $homepage-common-side-margin;
+        margin: 0 $common-side-margin;
+
         .site-explanation__title{
-            padding-top: 40px;
-            margin-bottom: 30px;
+            margin-top: 40px;
+            margin-bottom: 15px;
             font-size: 24px;
             font-weight: bolder;
         }
+
+        .site-explanation__explanations-container{
+            padding: 0;
+            margin: 0;
+
+            .site-explanation__explanations-elt{
+                @include common-box-shadow;
+                display: flex;
+                background-color: $background-color;
+                padding: 25px 0px;
+                margin: 20px 0px;
+                align-items: center;
+                border-radius: 25px;
+                margin-left:$homepage-left-margin-explanations-elt;
+                &__num{
+                    margin-left:(-$homepage-left-margin-explanations-elt);
+                    /* Permet au parent du num de commence horizontallement
+                    pile au milieu de &__num
+                    */
+                    background-color: $primary-color;
+
+                    $homepage-explanations-elt-width-num:($homepage-left-margin-explanations-elt * 2);
+                    width: $homepage-explanations-elt-width-num;
+                    line-height: $homepage-explanations-elt-width-num;
+                    // on veut que width==line-height pour que le num soit centre verticallement
+                    border-radius: 50%;
+                    text-align: center;
+                    font-size: 13px;
+                    color: white;
+                }
+            
+                &__logo{
+                    margin-left: 20px;
+                    color: grey;
+                   
+                }
+            
+                &__text{
+                    margin-left: 20px;
+                    font-weight: bold;
+                }
+            
+                &:hover{
+                    background-color:lighten($secondary-color,20%);
+                    
+                    .site-explanation__explanations-elt__logo{
+                        color: $primary-color;
+                    }
+                }
+            
+            }
+        }
+        
     }
 }
 
-.site-explanation__explanations-elt{
-    @include common-box-shadow;
-    display: flex;
-    background-color: $background-color;
-    padding: 25px 0px;
-    margin: 20px 0px;
-    align-items: center;
-    border-radius: 25px;
-    $left-margin-explanations-elt:13px;
-    margin-left:$left-margin-explanations-elt;
-    &__num{
-        $num-width:($left-margin-explanations-elt * 2);
-        margin-left:(-$left-margin-explanations-elt);
-        /* Permet au parent du num de commence horizontallement
-        pile au milieu de &__num
-        */
-        background-color: $primary-color;
-        width: $num-width;
-        line-height: $num-width;
-        // on veut que width==line-height pour que le num soit centre verticallement
-        border-radius: 50%;
-        text-align: center;
-        font-size: 13px;
-        color: white;
-    }
 
-    &__logo{
-        margin-left: 20px;
-        color: grey;
-    }
-
-    &__text{
-        margin-left: 20px;
-        font-weight: bold;
-    }
-
-}
 
 .restaurants{
-    margin:50px $homepage-common-side-margin;
+    margin:50px $common-side-margin;
     &__title{
         font-size: 22px;
         font-weight: bold;
@@ -91,12 +109,26 @@
     &__container{
         .restaurant-card{
             @include common-box-shadow;
+            
             background-color: white;
             margin-bottom: 25px;
             width: 100%;
             border-radius: 15px;
             overflow: hidden;
             position: relative;
+
+            &:hover{
+                @include common-box-shadow-hover;
+                .restaurant-card__lower-part__text__name{
+                    color: $primary-color;
+                }
+            }
+
+            &__anchor{
+                text-decoration: none;
+                color: black;
+            }
+
             &__container-img{
                 width: 100%;
                 height: 170px;
@@ -113,12 +145,15 @@
                 display: flex;
                 align-items: center;
                 &__text{
+
                     &__name{
                         font-weight: bold;
                         font-size: 18px;
+                        margin: 0;
                         margin-bottom: 5px;
                     }
                     &__location{
+                        margin: 0;
                         font-size: 16px;
                     }
                 }

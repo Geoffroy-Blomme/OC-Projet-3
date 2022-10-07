@@ -39,6 +39,12 @@
                         color: lightgrey;
                     }
                 }
+                &:hover{
+                    .main-footer__link__text{
+                        color: $secondary-color;
+                        
+                    }
+                }
             }
         }
     }

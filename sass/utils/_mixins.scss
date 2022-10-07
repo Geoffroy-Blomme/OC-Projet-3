@@ -17,13 +17,14 @@
     box-shadow: 3px 3px 10px $box-shadow-color;
 }
 
-@mixin button-hover-shadow(){
+@mixin common-box-shadow-hover(){
     box-shadow: -3px 3px 7px $box-shadow-color;
 }
 
+
 @mixin button-hover-effect(){
     @include button-bg-img($lighten:true);
-    @include button-hover-shadow;
+    @include common-box-shadow-hover();
 }
 
 @mixin restaurant-special-label($content,$bg-color,$color){
@@ -31,4 +32,10 @@
     content:"#{$content}";
     background-color: $bg-color;
     color:$color;
+}
+
+@mixin text-hidden-if-too-long(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

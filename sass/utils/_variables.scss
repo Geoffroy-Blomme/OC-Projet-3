@@ -1,6 +1,14 @@
 $first-color-button:$primary-color;
 $second-color-button:$secondary-color;
 
-$homepage-common-side-margin:20px;
+$common-side-margin:20px;
+$homepage-left-margin-explanations-elt:13px;
+$homepage-explanations-elt-width-num:$homepage-left-margin-explanations-elt * 2;
+
+$restaurants-main-image-restaurant-container-height:280px;
+$restaurants-dishes-margin:-5px;
+$restaurants-menu-dish-check-mark-height:16px;
+$restaurants-menu-dish-check-mark-padding:3px;
+$restaurants-menu-dish-details-and-price-bottom-margin:10px;
 
 $box-shadow-color:lightgrey;
