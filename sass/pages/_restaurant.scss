@@ -125,7 +125,7 @@
                     align-self: center;
                     padding: $restaurants-menu-dish-check-mark-padding;
                     height: $restaurants-menu-dish-check-mark-height;
-                    border-radius: (($restaurants-menu-dish-check-mark-height + $restaurants-menu-dish-check-mark-padding * 2 ) / 2);
+                    border-radius: calc(($restaurants-menu-dish-check-mark-height + $restaurants-menu-dish-check-mark-padding * 2) / 2);
                     // on veut une border-radius de 50% de la taille totale donc on prend padding*2 + height diviser par 2
                     color: $tertiary-color;
                     background-color: white;
