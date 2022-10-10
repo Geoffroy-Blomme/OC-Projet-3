@@ -189,36 +189,39 @@
                         position: relative;
                     
                         .favorite-logo{
-
+                            height: $homepage-favorite-logo-height;
+                            width: $homepage-favorite-logo-height;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
                             &--full{
                                 position: absolute;
                                 left: 0;
                                 top: 0;
                                 overflow: hidden;
-                                color: $primary-color;
-                                height: 0%;
-
-                                &::before{
-                                    content:"\2665";
-                                    font-size: $homepage-favorite-logo-font-size;
+                                
+                                clip-path: inset($homepage-favorite-logo-height 0 0 0);
+                                /*Clip-path permet de rogner l'image, 4 valeurs : haut, droite, bas et gauche.
+                                Ici on rogner le haut de l'image a la valeur de sa hauteur, afin qu'elle soit invisible de base.
+                                */
+                                
+                                svg{
+                                    fill: $primary-color;
                                 }
                             }
                     
-                            &--empty{
-                                &::before{
-                                    content:"\2661";
-                                    font-size: $homepage-favorite-logo-font-size;
-                                }
                             }
-                        }
+                        
                     }
                     #favorite-logo-pressed{
                         
                         display: none;
 
                         @keyframes fill-up {
+                           
                             to{
-                                height: 100%;
+                                clip-path: inset(0px 0px 0px 0px);
                             }
                         }
 
