@@ -1,3 +1,12 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+body{
+    height: 100%;
+}
+
 .current-location{
     
     background-color: #EAEAEA;
@@ -175,73 +184,13 @@
                     }
                 }
             
+                
+                
                 &__favorite-logo{
                     margin-left: auto;
                     margin-right: 10px;
                     z-index: 2;
-                    cursor: pointer;
-                    position: relative;
-                    &:active{
-                        
-                    }
-
-                    .favorite-logos {
-                        position: relative;
-                        cursor: pointer;
-                        .favorite-logo{
-                            height: $homepage-favorite-logo-height;
-                            width: $homepage-favorite-logo-height;
-                            img{
-                                width: 100%;
-                                height: 100%;
-                            }
-                            &--full{
-                                position: absolute;
-                                left: 0;
-                                top: 0;
-                                overflow: hidden;
-                                
-                                clip-path: inset($homepage-favorite-logo-height 0 0 0);
-                                /*Clip-path permet de rogner l'image, 4 valeurs : haut, droite, bas et gauche.
-                                Ici on rogner le haut de l'image a la valeur de sa hauteur, afin qu'elle soit invisible de base.
-                                */
-
-                                svg{
-                                    fill: $primary-color;
-                                }
-                            }
-                    
-                            }
-                        
-                    }
-
-                    /* Comme chaque couple input/label doit etre unique,
-                    on ajoute un nombre a la fin de l'id, puis on boucle
-                    sur le nombre de couples afin qu'il ait tous les memes proprietes             
-                    */
-                    @for $i from 1 through 4 {
-                        #favorite-logo-pressed-#{$i}{
-                            
-                            display: none;
-    
-                            @keyframes fill-up {
-                               
-                                to{
-                                    clip-path: inset(0px 0px 0px 0px);
-                                }
-                            }
-    
-                            &:checked ~ label{
-                                .favorite-logo--full{
-                                    animation: fill-up 2s ease forwards; 
-                                }
-                            }
-                            
-                        } 
-                    }
-                    
-                   
-                   
+           
                 }
             }
 
@@ -263,4 +212,46 @@
     }
 }
 
+.modal-loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, .5);
+    animation: modal 2s;
+    visibility: hidden;
+    @keyframes modal{
+        from{
+            visibility: visible;
+        }
+        to{
+            visibility: hidden;
+        }
+    }
 
+    &__spinner{
+
+        height: $homepage-spinner-height;
+        width: $homepage-spinner-height;
+        border: 10px solid white;
+        border-bottom-color: $primary-color;
+        border-radius: 50%;
+        animation: rotation 1s linear infinite;
+        @keyframes rotation{
+            from {
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+    }
+}

@@ -1,0 +1,60 @@
+.favorite-logo{
+    cursor: pointer;
+    position: relative;
+
+    @for $i from 1 through $number-of-restaurants {
+        #favorite-logo-pressed-#{$i}{
+            
+            display: none;
+
+            @keyframes fill-up {
+               
+                to{
+                    clip-path: inset(0px 0px 0px 0px);
+                
+                }
+            }
+
+            &:checked ~ label{
+                .favorite-logo__elt--full{
+                    animation: fill-up 2s ease forwards; 
+                }
+            }
+        
+        } 
+    
+}
+    .favorite-logo__container {
+        position: relative;
+        cursor: pointer;
+
+        .favorite-logo__elt{
+            height: $homepage-favorite-logo-height;
+            width: $homepage-favorite-logo-height;
+
+            svg{
+                width: 100%;
+                height: 100%;
+            }
+            
+            &--full{
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+                
+                clip-path: inset($homepage-favorite-logo-height 0 0 0);
+                /*Clip-path permet de rogner l'image, 4 valeurs : haut, droite, bas et gauche.
+                Ici on rogner le haut de l'image a la valeur de sa hauteur, afin qu'elle soit invisible de base.
+                */
+
+                svg{
+                    fill: $primary-color;
+                }
+            }
+    
+            }
+        
+    }
+
+}
