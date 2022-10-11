@@ -22,27 +22,31 @@
             }
         }
 
-        .main-footer__link-container{
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-            .main-footer__link__logo{
-            margin-right: 10px;
-            }
-            .main-footer__link{
-                &__text{
-                    font-size: 16px;
-                    color: $main-footer-color;
-                    text-decoration: none;
-
-                    &--informations{
-                        color: lightgrey;
-                    }
+        .main-footer__links{
+            padding: 0;
+            .main-footer__link-container{
+                display: flex;
+                align-items: center;
+                margin: 10px 0;
+                .main-footer__link__logo{
+                margin-right: 10px;
                 }
-                &:hover{
-                    .main-footer__link__text{
-                        color: $secondary-color;
-                        
+                
+                .main-footer__link{
+                    &__text{
+                        font-size: 16px;
+                        color: $main-footer-color;
+                        text-decoration: none;
+    
+                        &--informations{
+                            color: lightgrey;
+                        }
+                    }
+                    &:hover{
+                        .main-footer__link__text{
+                            color: $secondary-color;
+                            
+                        }
                     }
                 }
             }

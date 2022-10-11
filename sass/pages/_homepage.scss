@@ -17,6 +17,7 @@ body{
         display: flex;
         margin-left: -20px;
         .current-location__text{
+            margin: 0;
             margin-left: 15px;
         }
     }
@@ -243,7 +244,9 @@ body{
         border: 10px solid white;
         border-bottom-color: $primary-color;
         border-radius: 50%;
-        animation: rotation 1s linear infinite;
+        animation: rotation 1s linear;
+        animation-iteration-count: 10;
+        // Pour eviter que spinner continue de tourner a l'infini, on l'arrte apres 10 tours.
         @keyframes rotation{
             from {
                 transform: rotate(0deg);

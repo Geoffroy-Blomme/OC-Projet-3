@@ -50,6 +50,8 @@
 .menu{
     margin: 0 $common-side-margin;
 
+    
+    
     .menu__dish-type-container{
         margin-bottom: 40px;
     }
@@ -62,12 +64,29 @@
         border-image: linear-gradient(to right, $tertiary-color 40px, transparent 0) 1 0;
     }
 
+
+    @for $i from 1 through 5 {
+        .menu__dish-type-container:nth-of-type(#{$i}){
+            .menu__dishes{
+                animation-delay: #{$i * 0.75}s;
+            }
+        }
+    }
+    
     &__dishes{
         padding: 0;
         margin-left: $restaurants-dishes-margin;
         margin-right: $restaurants-dishes-margin;
-        
-        
+        opacity: 0;
+        @keyframes fadein {
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        animation: fadein 0.5s ease-in forwards;
         .menu__dish{
             list-style: none;
             display: flex;
@@ -77,16 +96,8 @@
             border-radius: 20px;
             margin-bottom: 20px;
             @include common-box-shadow;
-            &:hover{
-                
-                .menu__dish__text-container{
-                    width: 70%;
-                }
-                .menu__dish__container-check-mark{
-                    display: flex;
-                }
-            }
 
+           
             &__text-container{
                 display: flex;
                 flex-direction: column;
@@ -112,6 +123,21 @@
 
             &__price{
                 margin:auto 10px $restaurants-menu-dish-details-and-price-bottom-margin auto;
+            }
+
+            &:hover{
+                cursor: pointer;
+                .menu__dish__text-container{
+                    width: 70%;
+                    @media screen and (min-width: map-get($breakpoints,"desktop")) {
+                        width: 80%;
+                        
+                    }
+                }
+                
+                .menu__dish__container-check-mark{
+                    display: flex;
+                }
             }
 
             &__container-check-mark{

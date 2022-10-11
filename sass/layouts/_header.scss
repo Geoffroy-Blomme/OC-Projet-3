@@ -16,6 +16,9 @@
             left: 30px;
             top: 50%;
             transform: translate(-50%,-50%);
+            &:hover{
+                color: $primary-color;
+            }
         }
 
         .main-header__logo-anchor{

@@ -1,6 +1,11 @@
 $first-color-button:$primary-color;
 $second-color-button:$secondary-color;
 
+$breakpoints: (
+    "desktop":992px,
+    "tablet":768px
+);
+
 $number-of-restaurants:4;
 
 $common-side-margin:20px;
