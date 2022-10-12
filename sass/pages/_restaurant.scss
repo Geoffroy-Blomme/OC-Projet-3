@@ -103,7 +103,12 @@
                 flex-direction: column;
                 margin-left: 10px;
                 width: 80%;
-                
+                transition: width $homepage-dish-check-mark-animation-length;
+                flex-grow: 1;
+                @media screen and (min-width: map-get($breakpoints,"desktop")) {
+                    width: 80%;
+                    
+                }
                 &__title{
                     font-weight: bold;
                     margin: 15px 0 10px 0;
@@ -122,32 +127,40 @@
             }
 
             &__price{
-                margin:auto 10px $restaurants-menu-dish-details-and-price-bottom-margin auto;
+                margin:auto 30px $restaurants-menu-dish-details-and-price-bottom-margin 10px;
+                transition: margin $homepage-dish-check-mark-animation-length;
             }
 
             &:hover{
                 cursor: pointer;
+                
                 .menu__dish__text-container{
-                    width: 70%;
-                    @media screen and (min-width: map-get($breakpoints,"desktop")) {
-                        width: 80%;
-                        
+                    width: 65%;
+                }
+                .menu__dish__container-check-mark{    
+                    padding: 0 10px;
+                    width: 30px;
+
+                    .menu__dish__check-mark{
+                        transform: rotate(360deg);
                     }
                 }
-                
-                .menu__dish__container-check-mark{
-                    display: flex;
+                .menu__dish__price{
+                    margin-right: 10px;
                 }
             }
 
             &__container-check-mark{
                 align-self: stretch;
-                display: none;
-                padding: 0 15px;
-                margin-right: 0;
-                margin-left: auto;
+                display: flex;
+                justify-content: center;
+                width: 0px;
+                padding: 0;
+                overflow: hidden;
+                transition: width $homepage-dish-check-mark-animation-length, padding $homepage-dish-check-mark-animation-length;
                 background-color: $tertiary-color;
                 .menu__dish__check-mark{
+                    transition: transform $homepage-dish-check-mark-animation-length;
                     align-self: center;
                     padding: $restaurants-menu-dish-check-mark-padding;
                     height: $restaurants-menu-dish-check-mark-height;

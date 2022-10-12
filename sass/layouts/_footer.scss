@@ -4,10 +4,20 @@
     color: $main-footer-color;
     padding: 10px 0 25px 0;
 
+    @include tablet-only{
+        padding: 0;
+    }
     &__container{
         margin: 0 25px;
-
+        @include tablet-only{
+            display: flex;
+        }
+        
         .main-footer__logo-container{
+
+            @include tablet-only{
+                margin-right: 50px;
+            }
             display: flex;
             width:100px;
             height: auto;
@@ -24,15 +34,25 @@
 
         .main-footer__links{
             padding: 0;
+            @include tablet-only{
+                display: flex;
+            
+            }
             .main-footer__link-container{
+
                 display: flex;
                 align-items: center;
                 margin: 10px 0;
+                @include tablet-only{
+                    margin-right: 20px;
+                }
                 .main-footer__link__logo{
                 margin-right: 10px;
+                
                 }
                 
                 .main-footer__link{
+                    text-decoration: none;
                     &__text{
                         font-size: 16px;
                         color: $main-footer-color;

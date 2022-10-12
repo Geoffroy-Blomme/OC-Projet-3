@@ -15,12 +15,35 @@ body{
     justify-content: center;
     &__container{
         display: flex;
+        align-items: center;
         margin-left: -20px;
+
+        .current-location__logo{
+            @include tablet-only{
+                display: none;
+            }
+            &--big{
+                display: none;
+                @include tablet-only{
+                    display: unset;
+                }
+            }
+        }
+
+        
+
         .current-location__text{
             margin: 0;
             margin-left: 15px;
+            @include tablet-only{
+                font-size: 16px;
+            }
+            @include desktop-only{
+                font-size: 18px;
+            }
         }
     }
+
 }
 
 .site-introduction{
@@ -45,6 +68,10 @@ body{
         display: flex;
         flex-direction: column;
         margin: 0 $common-side-margin;
+        
+        @include tablet-only{
+            width: 50%;
+        }
 
         .site-explanation__title{
             margin-top: 40px;
@@ -117,6 +144,12 @@ body{
         font-weight: bold;
     }
     &__container{
+
+        @include tablet-only{
+            display: flex;
+            flex-wrap: wrap;
+            
+        }
         .restaurant-card{
             @include common-box-shadow;
             
@@ -132,6 +165,8 @@ body{
                 .restaurant-card__lower-part__text__name{
                     color: $primary-color;
                 }
+                transform: scale(1.02);
+                //agrandit la card lorsqu'on a la souris dessu
             }
 
 
@@ -209,7 +244,16 @@ body{
                 }
 
             }
+
+            @include tablet-only{
+                flex: 40%;
+                &:nth-of-type(odd){
+                    margin-right: 40px;
+                }
+                // on aura 2 cards par ligne donc on veut qu'il y ait un margin a droite sur celles de gauche (impaire)
+            }
         }
+        
     }
 }
 
@@ -235,6 +279,7 @@ body{
         to{
             visibility: hidden;
         }
+        
     }
 
     &__spinner{
