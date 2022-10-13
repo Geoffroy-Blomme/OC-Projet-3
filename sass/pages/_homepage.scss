@@ -67,10 +67,17 @@ body{
     &__container{
         display: flex;
         flex-direction: column;
-        margin: 0 $common-side-margin;
+        margin: 0 map-get($common-side-margin,mobile);
         
         @include tablet-only{
             width: 50%;
+            margin: auto;
+        }
+
+        @include desktop-only{
+            width: 100%;
+            justify-content: center;
+            margin: 0;
         }
 
         .site-explanation__title{
@@ -78,13 +85,24 @@ body{
             margin-bottom: 15px;
             font-size: 24px;
             font-weight: bolder;
+
+            @include tablet-only{
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         .site-explanation__explanations-container{
             padding: 0;
             margin: 0;
 
+            @include desktop-only{
+                display: flex;
+                justify-content: space-evenly;
+            }
+
             .site-explanation__explanations-elt{
+                
                 @include common-box-shadow;
                 display: flex;
                 background-color: $background-color;
@@ -93,6 +111,7 @@ body{
                 align-items: center;
                 border-radius: 25px;
                 margin-left:$homepage-left-margin-explanations-elt;
+                
                 &__num{
                     margin-left:(-$homepage-left-margin-explanations-elt);
                     /* Permet au parent du num de commence horizontallement
@@ -119,6 +138,12 @@ body{
                 &__text{
                     margin-left: 20px;
                     font-weight: bold;
+
+                    @include desktop-only{
+                        margin-right: 40px;
+                        margin-top: 0;
+                        margin-bottom: 0;
+                    }
                 }
             
                 &:hover{
@@ -138,7 +163,7 @@ body{
 
 
 .restaurants{
-    margin:50px $common-side-margin;
+    margin:50px map-get($common-side-margin,mobile);
     &__title{
         font-size: 22px;
         font-weight: bold;
@@ -251,6 +276,16 @@ body{
                     margin-right: 40px;
                 }
                 // on aura 2 cards par ligne donc on veut qu'il y ait un margin a droite sur celles de gauche (impaire)
+            }
+
+            @include desktop-only{
+                flex: 20%;
+                &:nth-of-type(n){
+                    margin-right: 20px;
+                } // pour assurer que ca ecrase le nth-of-type de tablet
+                &:nth-last-of-type(){
+                    margin-right: 0;
+                }
             }
         }
         

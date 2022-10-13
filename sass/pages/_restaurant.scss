@@ -1,14 +1,18 @@
 .main-image-restaurant{
-    position: relative;
     height: $restaurants-main-image-restaurant-container-height;
+    @include tablet-only{
+        height: auto;
+    }
     &__container{
-        position: absolute;
         height: $restaurants-main-image-restaurant-container-height;
         width: auto;
         &__image{
             height: 100%;
             width: 100%;
             object-fit: cover;
+        }
+        @include tablet-only{
+            height: 330px;
         }
     }
 }
@@ -20,40 +24,59 @@
     position: relative;
     border-radius: 40px 40px 0 0 ;
     &__container{
+        padding-top: 15px;
         display: flex;
         align-items: center;
-        padding-top: 15px;
+        @include desktop-only{
+            justify-content: center;
+        }
         &__title{
             font-family: 'title-font';
-            margin-left: $common-side-margin;
+            margin-left: map-get($common-side-margin,mobile);
             font-weight: normal;
             font-size: 28px;
             
-            &::after{
-                content: "";
-                width: 15px;
-                height: 1px;
-                position: absolute;
-                right: 0;
-                bottom:-1px;
+            @include tablet-only{
+                margin-left: map-get($common-side-margin,tablet);
             }
+           
         }
+        
 
         &__favorite-logo{
-            margin-right: 40px;
-            margin-left: auto;
+            position: absolute;
+            right: map-get($map: $common-side-margin, $key:mobile );
+
+            @include tablet-only{
+                right: map-get($map: $common-side-margin, $key: tablet);
+            }
+
+            @include desktop-only{
+                position: initial;
+                margin-left: 15px;
+            }
         }
     }
     
 }
 
 .menu{
-    margin: 0 $common-side-margin;
+    margin: 0 map-get($common-side-margin,mobile);
+    @include tablet-only{
+        margin-left: map-get($common-side-margin,tablet);
+        margin-right: map-get($common-side-margin, tablet);
+    }
 
-    
-    
+    @include desktop-only{
+        display: flex;
+        justify-content: space-around;
+    }
     .menu__dish-type-container{
         margin-bottom: 40px;
+
+        @include desktop-only{
+            width: 30%;
+        }
     }
 
     &__dish-type{
@@ -65,13 +88,13 @@
     }
 
 
-    @for $i from 1 through 5 {
+    @for $i from 1 through 6 {
         .menu__dish-type-container:nth-of-type(#{$i}){
             .menu__dishes{
                 animation-delay: #{$i * 0.75}s;
             }
         }
-    }
+    } // de 1 a 6 au cas ou on ajoute des aperitifs etc...
     
     &__dishes{
         padding: 0;
@@ -96,8 +119,7 @@
             border-radius: 20px;
             margin-bottom: 20px;
             @include common-box-shadow;
-
-           
+            
             &__text-container{
                 display: flex;
                 flex-direction: column;
@@ -133,7 +155,7 @@
 
             &:hover{
                 cursor: pointer;
-                
+                @include common-box-shadow-hover;
                 .menu__dish__text-container{
                     width: 65%;
                 }

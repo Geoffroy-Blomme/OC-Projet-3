@@ -12,7 +12,6 @@
         @include tablet-only{
             display: flex;
         }
-        
         .main-footer__logo-container{
 
             @include tablet-only{
@@ -36,7 +35,7 @@
             padding: 0;
             @include tablet-only{
                 display: flex;
-            
+                margin-left: 50px;
             }
             .main-footer__link-container{
 
@@ -45,6 +44,7 @@
                 margin: 10px 0;
                 @include tablet-only{
                     margin-right: 20px;
+
                 }
                 .main-footer__link__logo{
                 margin-right: 10px;
