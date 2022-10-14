@@ -1,18 +1,18 @@
 .main-image-restaurant{
-    height: $restaurants-main-image-restaurant-container-height;
-    @include tablet-only{
-        height: auto;
-    }
     &__container{
-        height: $restaurants-main-image-restaurant-container-height;
+        height: map-get($map: $restaurants-main-image-restaurant-container-height, $key: mobile);
         width: auto;
         &__image{
             height: 100%;
             width: 100%;
             object-fit: cover;
         }
-        @include tablet-only{
-            height: 330px;
+    }
+
+    @include tablet-only{
+        height: auto;
+        &__container{
+            height: map-get($map: $restaurants-main-image-restaurant-container-height, $key: tablet);
         }
     }
 }
@@ -22,14 +22,14 @@
     background-color: $background-color;
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
     border-radius: 40px 40px 0 0 ;
     &__container{
         padding-top: 15px;
         display: flex;
         align-items: center;
-        @include desktop-only{
-            justify-content: center;
-        }
+        position: relative;
         &__title{
             font-family: 'title-font';
             margin-left: map-get($common-side-margin,mobile);
@@ -37,28 +37,23 @@
             font-size: 28px;
             margin-right: 70px;
             //margin-right pour ne pas que favorite logo (position absolute) se retrouve au dessus du texte.
-            @include tablet-only{
-                margin-left: map-get($common-side-margin,tablet);
-                
-            }
-            @include desktop-only{
-                margin-right: 0;
-            }
            
         }
         
-
         &__favorite-logo{
             position: absolute;
             right:30px;
+        }
+    }
 
-            @include tablet-only{
-                right: map-get($map: $common-side-margin, $key: tablet);
+    @include tablet-only{
+
+        &__container{
+            &__title{
+                margin-left: map-get($common-side-margin,tablet);
             }
-
-            @include desktop-only{
-                position: initial;
-                margin-left: 20px;
+            &__favorite-logo{
+                right: map-get($map: $common-side-margin, $key: tablet);
             }
         }
     }
@@ -75,6 +70,7 @@
     @include desktop-only{
         display: flex;
         justify-content: space-around;
+
     }
     .menu__dish-type-container{
         margin-bottom: 40px;
@@ -93,19 +89,37 @@
     }
 
 
-    @for $i from 1 through 6 {
-        .menu__dish-type-container:nth-of-type(#{$i}){
-            .menu__dishes{
-                animation-delay: #{$i * 0.75}s;
-            }
-        }
-    } // de 1 a 6 au cas ou on ajoute des aperitifs etc...
-    
     &__dishes{
         padding: 0;
         margin-left: $restaurants-dishes-margin;
         margin-right: $restaurants-dishes-margin;
         opacity: 0;
+
+        &--starters{
+            animation-delay: (1 * $restaurants-dishes-animation-delay);
+            @include desktop-only{
+                animation-delay: 0s;
+                @include restaurants-dish-animation-delay;
+            }
+        }
+
+        &--main-dishes{
+            animation-delay: (2 * $restaurants-dishes-animation-delay);
+            @include desktop-only{
+                animation-delay: 0s;
+                @include restaurants-dish-animation-delay;
+
+            }
+        }
+
+        &--desserts{
+            animation-delay: (3 * $restaurants-dishes-animation-delay);
+            @include desktop-only{
+                animation-delay: 0s;
+                @include restaurants-dish-animation-delay;
+            }
+        }
+
         @keyframes fadein {
             from{
                 opacity: 0;
@@ -115,6 +129,12 @@
             }
         }
         animation: fadein 0.5s ease-in forwards;
+
+        @include desktop-only{
+            animation:none;
+            opacity: 1;
+        }
+
         .menu__dish{
             list-style: none;
             display: flex;
@@ -123,8 +143,23 @@
             overflow-wrap: break-word;
             border-radius: 20px;
             margin-bottom: 20px;
+            animation: marginTop 0.5s ease-in forwards, fadein 0.5s ease-in forwards;
+
             @include common-box-shadow;
+
+            @include desktop-only{
+                opacity: 0;
+            }
             
+            @keyframes marginTop {
+                from{
+                    transform: translateY(10px);
+                }
+                to{
+                    transform: translateY(0px);
+                }
+            }
+
             &__text-container{
                 display: flex;
                 flex-direction: column;
@@ -132,24 +167,18 @@
                 width: 80%;
                 transition: width $homepage-dish-check-mark-animation-length;
                 flex-grow: 1;
-                @media screen and (min-width: map-get($breakpoints,"desktop")) {
-                    width: 80%;
-                    
-                }
+        
                 &__title{
                     font-weight: bold;
                     margin: 15px 0 10px 0;
                     font-size: 18px;
                     @include text-hidden-if-too-long;
-
                 }
                 &__details{
                     color: #4C4C4C;
                     margin:0 0 $restaurants-menu-dish-details-and-price-bottom-margin 0;
                     font-size: 16px;
-                    white-space: wrap;
                     @include text-hidden-if-too-long;
-
                 }
             }
 
@@ -157,7 +186,7 @@
                 margin:auto 30px $restaurants-menu-dish-details-and-price-bottom-margin 10px;
                 transition: margin $homepage-dish-check-mark-animation-length;
             }
-
+            
             &:hover{
                 cursor: pointer;
                 @include common-box-shadow-hover;
@@ -175,7 +204,9 @@
                 .menu__dish__price{
                     margin-right: 10px;
                 }
+                
             }
+
 
             &__container-check-mark{
                 align-self: stretch;

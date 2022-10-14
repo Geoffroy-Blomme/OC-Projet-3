@@ -50,3 +50,11 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+@mixin restaurants-dish-animation-delay{
+    @for $i from 1 to 20 {
+        .menu__dish:nth-of-type(#{$i}){
+            animation-delay:(#{$i * $restaurants-dishes-animation-delay});
+        }
+    }
+}

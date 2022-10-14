@@ -47,8 +47,14 @@
 
                 }
                 .main-footer__link__logo{
-                margin-right: 10px;
-                
+                    margin-right: 10px;
+                    height: 16px;
+                    width: auto;
+                    svg{
+                        fill: white;
+                        height: 100%;
+                        width: 100%;
+                    }
                 }
                 
                 .main-footer__link{

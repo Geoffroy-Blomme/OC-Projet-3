@@ -5,28 +5,24 @@
     @for $i from 1 through $number-of-restaurants {
         #favorite-logo-pressed-#{$i}{
             
-            display: none;
-
-            @keyframes fill-up {
-               
-                to{
-                    clip-path: inset(0px 0px 0px 0px);
-                
-                }
-            }
-
-            &:checked ~ label{
-                .favorite-logo__elt--full{
-                    animation: fill-up 2s ease forwards; 
-                }
-            }
-        
+            
+            
         } 
     
 }
     .favorite-logo__container {
         position: relative;
         cursor: pointer;
+        &:hover{
+            .favorite-logo__elt--full{
+            @keyframes fill-up {
+                to{
+                clip-path: inset(0px 0px 0px 0px);
+                }
+            }  
+            animation: fill-up 2s ease forwards; 
+            }
+        }
 
         .favorite-logo__elt{
             height: $homepage-favorite-logo-height;

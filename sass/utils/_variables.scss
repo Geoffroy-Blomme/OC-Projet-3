@@ -22,10 +22,15 @@ $homepage-favorite-logo-height:24px;
 $homepage-spinner-height:64px;
 $homepage-dish-check-mark-animation-length:0.5s;
 
-$restaurants-main-image-restaurant-container-height:280px;
+$restaurants-main-image-restaurant-container-height:(
+    'mobile':280px,
+    'tablet':330px
+);
 $restaurants-dishes-margin:-5px;
 $restaurants-menu-dish-check-mark-height:16px;
 $restaurants-menu-dish-check-mark-padding:3px;
 $restaurants-menu-dish-details-and-price-bottom-margin:10px;
+$restaurants-dishes-animation-delay:0.75s;
+$restaurants-number-type-of-dishes:3;
 
 $box-shadow-color:lightgrey;
