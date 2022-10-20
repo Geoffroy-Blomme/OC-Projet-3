@@ -62,22 +62,10 @@
 
 .menu{
     margin: 0 map-get($common-side-margin,mobile);
-    @include tablet-only{
-        margin-left: map-get($common-side-margin,tablet);
-        margin-right: map-get($common-side-margin, tablet);
-    }
-
-    @include desktop-only{
-        display: flex;
-        justify-content: space-around;
-
-    }
+    
     .menu__dish-type-container{
         margin-bottom: 40px;
 
-        @include desktop-only{
-            width: 30%;
-        }
     }
 
     &__dish-type{
@@ -97,27 +85,15 @@
 
         &--starters{
             animation-delay: (1 * $restaurants-dishes-animation-delay);
-            @include desktop-only{
-                animation-delay: 0s;
-                @include restaurants-dish-animation-delay;
-            }
         }
 
         &--main-dishes{
             animation-delay: (2 * $restaurants-dishes-animation-delay);
-            @include desktop-only{
-                animation-delay: 0s;
-                @include restaurants-dish-animation-delay;
 
-            }
         }
 
         &--desserts{
             animation-delay: (3 * $restaurants-dishes-animation-delay);
-            @include desktop-only{
-                animation-delay: 0s;
-                @include restaurants-dish-animation-delay;
-            }
         }
 
         @keyframes fadein {
@@ -130,10 +106,6 @@
         }
         animation: fadein 0.5s ease-in forwards;
 
-        @include desktop-only{
-            animation:none;
-            opacity: 1;
-        }
 
         .menu__dish{
             list-style: none;
@@ -146,10 +118,6 @@
             animation: marginTop 0.5s ease-in forwards, fadein 0.5s ease-in forwards;
 
             @include common-box-shadow;
-
-            @include desktop-only{
-                opacity: 0;
-            }
             
             @keyframes marginTop {
                 from{
@@ -231,6 +199,40 @@
             }
                 
         }
+    }
+
+    @include tablet-only{
+        margin-left: map-get($common-side-margin,tablet);
+        margin-right: map-get($common-side-margin, tablet);
+    }
+
+    @include desktop-only{
+        display: flex;
+        justify-content: space-around;
+        animation:none;
+        opacity: 1;
+        .menu__dish-type-container{
+            width: 30%;
+        }
+        &__dishes{
+            &--starters{
+                animation-delay: 0s;
+                @include restaurants-dish-animation-delay;
+            }
+            &--main-dishes{
+                animation-delay: 0s;
+                @include restaurants-dish-animation-delay;
+            }
+            &--desserts{
+                animation-delay: 0s;
+                @include restaurants-dish-animation-delay;
+            }
+            .menu__dish{
+                opacity: 0;
+            }
+        }
+        
+       
     }
 }
 

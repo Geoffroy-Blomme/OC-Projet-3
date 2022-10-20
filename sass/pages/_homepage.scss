@@ -20,14 +20,8 @@ body{
         .current-location__logo{
             position: absolute;
             left: -30px;
-            @include tablet-only{
-                display: none;
-            }
             &--big{
                 display: none;
-                @include tablet-only{
-                    display: unset;
-                }
             }
         }
 
@@ -35,10 +29,28 @@ body{
 
         .current-location__text{
             margin: 0;
-            @include tablet-only{
+        }
+    }
+
+    @include tablet-only{
+        &__container{
+            .current-location__logo{
+                display: none;
+
+                &--big{
+                    display: unset;
+                }
+            }
+
+            .current-location__text{
                 font-size: 16px;
             }
-            @include desktop-only{
+        }
+    }
+
+    @include desktop-only{
+        &__container{
+            .current-location__text{
                 font-size: 18px;
             }
         }
@@ -68,38 +80,17 @@ body{
         display: flex;
         flex-direction: column;
         margin: 0 map-get($common-side-margin,mobile);
-        
-        @include tablet-only{
-            width: 50%;
-            margin: auto;
-        }
-
-        @include desktop-only{
-            width: 100%;
-            justify-content: center;
-            margin: 0;
-        }
 
         .site-explanation__title{
             margin-top: 40px;
             margin-bottom: 15px;
             font-size: 24px;
             font-weight: bolder;
-
-            @include tablet-only{
-                margin-left: auto;
-                margin-right: auto;
-            }
         }
 
         .site-explanation__explanations-container{
             padding: 0;
             margin: 0;
-
-            @include desktop-only{
-                display: flex;
-                justify-content: space-evenly;
-            }
 
             .site-explanation__explanations-elt{
                 
@@ -111,13 +102,6 @@ body{
                 align-items: center;
                 border-radius: 25px;
                 margin-left:$homepage-left-margin-explanations-elt;
-
-                @include desktop-only{
-                    padding:20px 0;
-                    &__text{
-                        margin-right: 40px;
-                    }
-                }
 
                 &__num{
                     margin-left:(-$homepage-left-margin-explanations-elt);
@@ -161,6 +145,37 @@ body{
         }
         
     }
+
+    @include tablet-only{
+        &__container{
+            width: 50%;
+            margin: auto;
+
+            .site-explanation__title{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    @include desktop-only{
+        &__container{
+            width: 100%;
+            justify-content: center;
+            margin: 0;
+            .site-explanation__explanations-container{
+                display: flex;
+                justify-content: space-evenly;
+
+                .site-explanation__explanations-elt{
+                    padding:20px 0;
+                    &__text{
+                        margin-right: 40px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -173,11 +188,6 @@ body{
     }
     &__container{
 
-        @include tablet-only{
-            display: flex;
-            flex-wrap: wrap;
-            
-        }
         .restaurant-card{
             @include common-box-shadow;
             
@@ -273,15 +283,27 @@ body{
 
             }
 
-            @include tablet-only{
+        }
+        
+    }
+
+    @include tablet-only{
+        &__container{
+            display: flex;
+            flex-wrap: wrap;
+            .restaurant-card{
                 flex: 40%;
                 &:nth-of-type(odd){
                     margin-right: 40px;
                 }
                 // on aura 2 cards par ligne donc on veut qu'il y ait un margin a droite sur celles de gauche (impaire)
             }
+        }
+    }
 
-            @include desktop-only{
+    @include desktop-only{
+        &__container{
+            .restaurant-card{
                 flex: 20%;
                 &:nth-of-type(n){
                     margin-right: 20px;
@@ -291,7 +313,6 @@ body{
                 }
             }
         }
-        
     }
 }
 
