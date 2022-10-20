@@ -13,7 +13,7 @@
         height: auto;
         &__container{
             height: map-get($map: $restaurants-main-image-restaurant-container-height, $key: tablet);
-        }
+        }   
     }
 }
 
@@ -176,7 +176,6 @@
                 
             }
 
-
             &__container-check-mark{
                 align-self: stretch;
                 display: flex;
@@ -204,35 +203,25 @@
     @include tablet-only{
         margin-left: map-get($common-side-margin,tablet);
         margin-right: map-get($common-side-margin, tablet);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__dish-type-container{
+            
+            .menu__dishes{
+                width: 400px;
+            }
+        }
     }
 
     @include desktop-only{
-        display: flex;
-        justify-content: space-around;
-        animation:none;
-        opacity: 1;
-        .menu__dish-type-container{
-            width: 30%;
-        }
-        &__dishes{
-            &--starters{
-                animation-delay: 0s;
-                @include restaurants-dish-animation-delay;
-            }
-            &--main-dishes{
-                animation-delay: 0s;
-                @include restaurants-dish-animation-delay;
-            }
-            &--desserts{
-                animation-delay: 0s;
-                @include restaurants-dish-animation-delay;
-            }
-            .menu__dish{
-                opacity: 0;
+        &__dish-type-container{
+            
+            .menu__dishes{
+                width: 500px;
             }
         }
-        
-       
+             
     }
 }
 
