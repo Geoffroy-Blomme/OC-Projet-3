@@ -171,13 +171,11 @@
                     font-weight: bold;
                     margin: 15px 0 10px 0;
                     font-size: 18px;
-                    @include text-hidden-if-too-long;
-                }
+                    }
                 &__details{
                     color: #4C4C4C;
                     margin:0 0 $restaurants-menu-dish-details-and-price-bottom-margin 0;
                     font-size: 16px;
-                    @include text-hidden-if-too-long;
 
                 }
             }
@@ -198,7 +196,12 @@
                         transform: rotate(360deg);
                     }
                 }
-                
+                .menu__dish__text-container__title{
+                    @include text-hidden-if-too-long;
+                }
+                .menu__dish__text-container__details{
+                    @include text-hidden-if-too-long;
+                }
                 .menu__dish__price{
                     margin-right: 10px;
                 }
