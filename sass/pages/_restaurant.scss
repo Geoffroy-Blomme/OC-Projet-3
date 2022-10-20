@@ -164,10 +164,9 @@
                 display: flex;
                 flex-direction: column;
                 margin-left: 10px;
-                width: 80%;
                 transition: width $homepage-dish-check-mark-animation-length;
                 flex-grow: 1;
-        
+                overflow: hidden;
                 &__title{
                     font-weight: bold;
                     margin: 15px 0 10px 0;
@@ -179,28 +178,27 @@
                     margin:0 0 $restaurants-menu-dish-details-and-price-bottom-margin 0;
                     font-size: 16px;
                     @include text-hidden-if-too-long;
+
                 }
             }
 
             &__price{
-                margin:auto 30px $restaurants-menu-dish-details-and-price-bottom-margin 10px;
+                margin:auto 30px $restaurants-menu-dish-details-and-price-bottom-margin 5px;
                 transition: margin $homepage-dish-check-mark-animation-length;
             }
             
             &:hover{
                 cursor: pointer;
                 @include common-box-shadow-hover;
-                .menu__dish__text-container{
-                    width: 65%;
-                }
+        
                 .menu__dish__container-check-mark{    
                     padding: 0 10px;
-                    width: 30px;
-
+                    flex:0 0 30px;
                     .menu__dish__check-mark{
                         transform: rotate(360deg);
                     }
                 }
+                
                 .menu__dish__price{
                     margin-right: 10px;
                 }
