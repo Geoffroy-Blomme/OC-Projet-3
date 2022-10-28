@@ -44,9 +44,12 @@
                         }
                     }
 
-                    &__logo{
-                        color: white;
+                    &__icon-container{
                         margin-right: 5px;
+                        .main-footer__link__logo{
+                            color: white;
+
+                        }
                     }
                     &__text{
                         font-size: 16px;
