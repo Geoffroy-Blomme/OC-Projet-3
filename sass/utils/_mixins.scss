@@ -18,7 +18,7 @@
     $second-color:$second-color-button;
 
     @if $lighten == true{
-        $first-color:adjust-hue($first-color-button,20deg);
+        $first-color:scale-color($first-color,$lightness:20%);
         //first color is lightened
     }
     background-image: linear-gradient(to left top, $first-color, $second-color);
