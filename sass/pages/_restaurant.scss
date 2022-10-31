@@ -104,6 +104,15 @@
                 opacity: 1;
             }
         }
+
+        @keyframes marginTop {
+            from{
+                transform: translateY(15px);
+            }
+            to{
+                transform: translateY(0px);
+            }
+        }
         animation: marginTop 0.5s ease-in forwards,fadein 0.5s ease-in forwards;
         .menu__dish{
             list-style: none;
@@ -116,15 +125,7 @@
 
             @include common-box-shadow;
             
-            @keyframes marginTop {
-                from{
-                    transform: translateY(15px);
-                }
-                to{
-                    transform: translateY(0px);
-                }
-            }
-
+        
             &__text-container{
                 display: flex;
                 flex-direction: column;

@@ -303,6 +303,7 @@ body{
     background-color: rgba(0, 0, 0, .5);
     animation: modal 2s;
     visibility: hidden;
+    
     @keyframes modal{
         from{
             visibility: visible;
@@ -322,7 +323,7 @@ body{
         border-radius: 50%;
         animation: rotation 1s linear;
         animation-iteration-count: 10;
-        // Pour eviter que spinner continue de tourner a l'infini, on l'arrte apres 10 tours.
+        // Pour eviter que spinner continue de tourner a l'infini, on l'arrete apres 10 tours.
         @keyframes rotation{
             from {
                 transform: rotate(0deg);
