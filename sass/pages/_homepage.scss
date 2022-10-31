@@ -256,10 +256,10 @@ body{
                 top: 15px;
                 font-size: 14px;
                 font-weight: bold;
+                padding:8px 12px;
 
                 &--new::before{
                     @include restaurant-special-label("Nouveau",$tertiary-color,#0E9070);
-                    
                 }
 
             }
